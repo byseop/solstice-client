@@ -5,10 +5,10 @@ import { ISignInProps } from './interfaces';
 import { signIn } from 'next-auth/react';
 
 const SignIn: FC<ISignInProps> = ({ className, providers }) => {
-  console.log(providers);
-
   const handleClick = async (id: string) => {
-    await signIn(id);
+    await signIn(id, {
+      callbackUrl: '/'
+    });
   };
 
   return (
